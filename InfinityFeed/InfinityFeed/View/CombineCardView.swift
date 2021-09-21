@@ -15,7 +15,6 @@ class CombineCardView: UIView {
         imageView.clipsToBounds = true
         return imageView
     }()
-
     
     let diamondButton = UIButton(type: .system)
     let fullBottomContainer = FullBottomContainer()
@@ -75,6 +74,7 @@ class CombineCardView: UIView {
             diamondButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
+    
     private func createReaction() {
         likeView.alpha = 0
         dislikeView.alpha = 0
@@ -91,5 +91,4 @@ class CombineCardView: UIView {
             likeView.heightAnchor.constraint(equalToConstant: 80),
         ])
     }
-    
 }

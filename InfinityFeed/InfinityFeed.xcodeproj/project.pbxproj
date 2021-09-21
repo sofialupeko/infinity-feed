@@ -18,7 +18,7 @@
 		F509F9D326F9E00D00224BBA /* ImageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509F9D226F9E00D00224BBA /* ImageTextView.swift */; };
 		F509F9D526F9F81100224BBA /* FullBottomContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509F9D426F9F81100224BBA /* FullBottomContainer.swift */; };
 		F509F9D926FA307800224BBA /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509F9D826FA307800224BBA /* ActionButton.swift */; };
-		F509F9DC26FA475300224BBA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509F9DB26FA475300224BBA /* Model.swift */; };
+		F509F9DC26FA475300224BBA /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509F9DB26FA475300224BBA /* CardInfo.swift */; };
 		F509F9DF26FA599A00224BBA /* CardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F509F9DE26FA599A00224BBA /* CardProvider.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +36,7 @@
 		F509F9D226F9E00D00224BBA /* ImageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextView.swift; sourceTree = "<group>"; };
 		F509F9D426F9F81100224BBA /* FullBottomContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullBottomContainer.swift; sourceTree = "<group>"; };
 		F509F9D826FA307800224BBA /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
-		F509F9DB26FA475300224BBA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		F509F9DB26FA475300224BBA /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
 		F509F9DE26FA599A00224BBA /* CardProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +107,7 @@
 		F509F9DA26FA474300224BBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F509F9DB26FA475300224BBA /* Model.swift */,
+				F509F9DB26FA475300224BBA /* CardInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,7 +196,7 @@
 				F509F9BB26F933A400224BBA /* ViewController.swift in Sources */,
 				F509F9D526F9F81100224BBA /* FullBottomContainer.swift in Sources */,
 				F509F9D026F945F200224BBA /* CombineCardView.swift in Sources */,
-				F509F9DC26FA475300224BBA /* Model.swift in Sources */,
+				F509F9DC26FA475300224BBA /* CardInfo.swift in Sources */,
 				F509F9D926FA307800224BBA /* ActionButton.swift in Sources */,
 				F509F9B726F933A400224BBA /* AppDelegate.swift in Sources */,
 				F509F9B926F933A400224BBA /* SceneDelegate.swift in Sources */,

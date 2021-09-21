@@ -2,17 +2,17 @@
 //  CombineVC.swift
 //  InfinityFeed
 //
-//  Created by Denis Valshchikov on 21.09.2021.
+//  Created by Sofia Lupeko on 21.09.2021.
 //
 
 import UIKit
 
 class CombineVC: UIViewController {
     
-    var model: Model
+    let cardProvider: CardProvider
     
-    init(model: Model) {
-        self.model = model
+    init(cardProvider: CardProvider) {
+        self.cardProvider = cardProvider
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,7 +23,7 @@ class CombineVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGroupedBackground
-        createCards()
+        appendCards(2)
     }
     
     @objc private func panGestureHandler(_ sender: UIPanGestureRecognizer) {
@@ -51,6 +51,7 @@ class CombineVC: UIViewController {
                         card.center.x += self.view.bounds.width
                         card.alpha = 0
                     } completion: { _ in
+                        self.appendCards(1)
                         card.removeFromSuperview()
                         print("like")
                     }
@@ -59,6 +60,7 @@ class CombineVC: UIViewController {
                         card.center.x -= self.view.bounds.width
                         card.alpha = 0
                     } completion: { _ in
+                        self.appendCards(1)
                         card.removeFromSuperview()
                         print("dislike")
                     }
@@ -74,25 +76,27 @@ class CombineVC: UIViewController {
         }
     }
     
-    private func createCards() {
-        for item in model.imageNames {
-            let cardFrame = CGRect(x: 0,
-                                   y: 0,
-                                   width: view.bounds.width,
-                                   height: view.bounds.height
-            )
-            let card = CombineCardView(frame: cardFrame, imageName: item)
-            
-            card.center = view.center
-            
-            let panGestureRecognizer = UIPanGestureRecognizer()
-            panGestureRecognizer.addTarget(self, action: #selector(panGestureHandler))
-            card.addGestureRecognizer(panGestureRecognizer)
-            view.insertSubview(card, at: 0)
+    private func appendCards(_ number: Int) {
+        for _ in 0..<number {
+            let cardInfo = cardProvider.makeCard()
+            configureCardAndAddSubview(cardInfo: cardInfo)
         }
-        
     }
     
-    
+    private func configureCardAndAddSubview(cardInfo: CardInfo) {
+        let cardFrame = CGRect(x: 0,
+                               y: 0,
+                               width: view.bounds.width,
+                               height: view.bounds.height
+        )
+        let card = CombineCardView(frame: cardFrame, imageName: cardInfo.imageName)
+        
+        card.center = view.center
+        
+        let panGestureRecognizer = UIPanGestureRecognizer()
+        panGestureRecognizer.addTarget(self, action: #selector(panGestureHandler))
+        card.addGestureRecognizer(panGestureRecognizer)
+        view.insertSubview(card, at: 0)
+    }
 }
 

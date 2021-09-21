@@ -2,7 +2,7 @@
 //  FullBottomContainer.swift
 //  InfinityFeed
 //
-//  Created by Denis Valshchikov on 21.09.2021.
+//  Created by Sofia Lupeko on 21.09.2021.
 //
 
 import UIKit
@@ -31,7 +31,7 @@ class FullBottomContainer: UIView {
         addSubview(hashtags)
         addSubview(buyButton)
         addSubview(shareButton)
-
+        
         configure()
     }
     
@@ -68,7 +68,7 @@ class FullBottomContainer: UIView {
         hashtags.translatesAutoresizingMaskIntoConstraints = false
         buyButton.translatesAutoresizingMaskIntoConstraints = false
         shareButton.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             starContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             starContainer.topAnchor.constraint(equalTo: self.topAnchor),
@@ -83,7 +83,7 @@ class FullBottomContainer: UIView {
             buyButton.topAnchor.constraint(equalTo: self.topAnchor),
             shareButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             shareButton.topAnchor.constraint(equalTo: buyButton.bottomAnchor, constant: 19)
-        
+            
         ])
     }
     

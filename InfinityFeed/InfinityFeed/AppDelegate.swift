@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  InfinityFeed
 //
-//  Created by Denis Valshchikov on 21.09.2021.
+//  Created by Sofia Lupeko on 21.09.2021.
 //
 
 import UIKit

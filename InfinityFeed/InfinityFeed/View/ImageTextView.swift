@@ -2,7 +2,7 @@
 //  ImageTextView.swift
 //  InfinityFeed
 //
-//  Created by Denis Valshchikov on 21.09.2021.
+//  Created by Sofia Lupeko on 21.09.2021.
 //
 
 import UIKit
@@ -12,12 +12,10 @@ class ImageTextView: UIView {
     let imageView = UIImageView()
     let label = UILabel()
     let spacing: Int
-
-
+    
     override init(frame: CGRect) {
         self.spacing = 0
         super.init(frame: frame)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -29,7 +27,6 @@ class ImageTextView: UIView {
             imageView.image = iconImage
             imageView.frame = CGRect(origin: .zero, size: iconImage.size)
         }
-        
         label.text = text
         label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor = .white
@@ -37,7 +34,6 @@ class ImageTextView: UIView {
         super.init(frame: .zero)
         configuration()
     }
-    
     
     private func configuration() {
         
