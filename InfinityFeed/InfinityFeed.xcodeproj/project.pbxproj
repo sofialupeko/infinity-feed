@@ -70,8 +70,6 @@
 		F509F9B526F933A400224BBA /* InfinityFeed */ = {
 			isa = PBXGroup;
 			children = (
-				F557CBDC26FA75EE002B31C8 /* Main.storyboard */,
-				F557CBDE26FA775F002B31C8 /* ViewController.swift */,
 				F509F9DA26FA474300224BBA /* Models */,
 				F509F9D126F9465600224BBA /* Views */,
 				F509F9CC26F9356200224BBA /* Controllers */,
@@ -123,6 +121,8 @@
 				F509F9B626F933A400224BBA /* AppDelegate.swift */,
 				F509F9B826F933A400224BBA /* SceneDelegate.swift */,
 				F509F9C426F933A800224BBA /* Info.plist */,
+				F557CBDC26FA75EE002B31C8 /* Main.storyboard */,
+				F557CBDE26FA775F002B31C8 /* ViewController.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
