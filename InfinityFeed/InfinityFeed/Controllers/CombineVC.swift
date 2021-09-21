@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CombineVC: UIViewController {
+final class CombineVC: UIViewController {
     
-    let cardProvider: CardProvider
+    private let cardProvider: CardProvider
     
     init(cardProvider: CardProvider) {
         self.cardProvider = cardProvider
@@ -26,12 +26,40 @@ class CombineVC: UIViewController {
         appendCards(2)
     }
     
-    @objc private func panGestureHandler(_ sender: UIPanGestureRecognizer) {
+    private func appendCards(_ number: Int) {
+        for _ in 0..<number {
+            let cardInfo = cardProvider.makeCard()
+            configureCardAndAddSubview(cardInfo: cardInfo)
+        }
+    }
+    
+    private func configureCardAndAddSubview(cardInfo: CardInfo) {
+        let cardFrame = CGRect(
+            x: 0,
+            y: 0,
+            width: view.bounds.width,
+            height: view.bounds.height
+        )
+        let card = CombineCardView(frame: cardFrame, imageName: cardInfo.imageName)
+        card.center = view.center
+        
+        let panGestureRecognizer = UIPanGestureRecognizer()
+        panGestureRecognizer.addTarget(self, action: #selector(panGestureHandler))
+        card.addGestureRecognizer(panGestureRecognizer)
+        view.insertSubview(card, at: 0)
+    }
+}
+
+// MARK: - PanGestureHandling
+extension CombineVC {
+    @objc
+    private func panGestureHandler(_ sender: UIPanGestureRecognizer) {
         if let card = sender.view as? CombineCardView {
             let point = sender.translation(in: view)
             
-            card.center = CGPoint(x: view.center.x + point.x,
-                                  y: view.center.y + point.y
+            card.center = CGPoint(
+                x: view.center.x + point.x,
+                y: view.center.y + point.y
             )
             
             let rotationAngle = point.x / view.bounds.width * 0.4
@@ -75,28 +103,4 @@ class CombineVC: UIViewController {
             }
         }
     }
-    
-    private func appendCards(_ number: Int) {
-        for _ in 0..<number {
-            let cardInfo = cardProvider.makeCard()
-            configureCardAndAddSubview(cardInfo: cardInfo)
-        }
-    }
-    
-    private func configureCardAndAddSubview(cardInfo: CardInfo) {
-        let cardFrame = CGRect(x: 0,
-                               y: 0,
-                               width: view.bounds.width,
-                               height: view.bounds.height
-        )
-        let card = CombineCardView(frame: cardFrame, imageName: cardInfo.imageName)
-        
-        card.center = view.center
-        
-        let panGestureRecognizer = UIPanGestureRecognizer()
-        panGestureRecognizer.addTarget(self, action: #selector(panGestureHandler))
-        card.addGestureRecognizer(panGestureRecognizer)
-        view.insertSubview(card, at: 0)
-    }
 }
-

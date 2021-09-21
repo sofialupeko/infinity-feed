@@ -7,36 +7,32 @@
 
 import UIKit
 
-class ImageTextView: UIView {
+final class ImageTextView: UIView {
     
-    let imageView = UIImageView()
-    let label = UILabel()
-    let spacing: Int
+    private let imageView = UIImageView()
+    private let label: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = .white
+        return label
+    }()
+    private let spacing: Int
     
-    override init(frame: CGRect) {
-        self.spacing = 0
-        super.init(frame: frame)
+    init(image: UIImage?, text: String, spacing: Int) {
+        if let iconImage = image {
+            imageView.image = iconImage
+        }
+        self.label.text = text
+        self.spacing = spacing
+        super.init(frame: .zero)
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(image: UIImage?, text: String, spacing: Int) {
-        if let iconImage = image {
-            imageView.image = iconImage
-            imageView.frame = CGRect(origin: .zero, size: iconImage.size)
-        }
-        label.text = text
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.textColor = .white
-        self.spacing = spacing
-        super.init(frame: .zero)
-        configuration()
-    }
-    
-    private func configuration() {
-        
+    private func configureUI() {
         addSubview(imageView)
         addSubview(label)
         

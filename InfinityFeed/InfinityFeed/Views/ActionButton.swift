@@ -9,7 +9,9 @@ import UIKit
 
 final class ActionButton: UIButton {
     
-    override var buttonType: UIButton.ButtonType {.system}
+    override var buttonType: UIButton.ButtonType {
+        .system
+    }
     
     init() {
         super.init(frame: .zero)

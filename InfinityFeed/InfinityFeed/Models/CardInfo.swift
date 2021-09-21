@@ -6,8 +6,8 @@
 //
 
 import Foundation
+
 struct CardInfo {
-    
     let imageName: String
     
     init(imageName: String) {
